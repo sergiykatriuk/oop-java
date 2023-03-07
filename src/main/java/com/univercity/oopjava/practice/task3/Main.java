@@ -27,6 +27,6 @@ public class Main {
         for (Account account : accounts) {
             System.out.println(account.printBalance());
         }
-        System.out.println(String.format("Total amount = %s\n", accounts[0].getTotalAmount()));
+        System.out.println(String.format("Total amount = %s\n", Account.getTotalAmount()));
     }
 }

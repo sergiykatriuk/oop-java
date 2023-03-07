@@ -37,7 +37,7 @@ public class Account {
         totalAmount += sum;
     }
 
-    public double getTotalAmount() {
+    public static double getTotalAmount() {
         return totalAmount;
     }
 
