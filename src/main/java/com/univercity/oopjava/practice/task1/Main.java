@@ -31,5 +31,8 @@ public class Main {
             }
         }
         System.out.println(String.format("Point %s appears in array %d times", point, count));
+
+        int[] ii=new int[5];
+        System.out.println(ii[1]);
     }
 }
