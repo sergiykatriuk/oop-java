@@ -6,6 +6,9 @@ import java.util.List;
 public class MultipleAnswerQuestion extends Question {
 
     protected List<Integer> correctAnswers = new ArrayList<>();
+    private List<Integer> answersProvided = new ArrayList<>();
+    private boolean isPartiallyCorrect;
+
 
     public MultipleAnswerQuestion(String text) {
         super(text);
@@ -22,25 +25,28 @@ public class MultipleAnswerQuestion extends Question {
 
 
     @Override
-    public boolean checkCorrect(int... answerNums) {
+    public void provideAnswers(int... answerNums) {
         List<Integer> answers = new ArrayList<>();
         for (int answer : answerNums) {
             answers.add(answer);
         }
-        boolean isCorrect = correctAnswers.size() == answerNums.length
-                && correctAnswers.containsAll(answers);
-        boolean isPartiallyCorrect = correctAnswers.stream().anyMatch(answers::contains);
-        StringBuilder stringBuilder = new StringBuilder("Answers # ");
-        for (int i = 0; i < answers.size(); i++) {
-            stringBuilder.append(answers.get(i));
-            if (i < answers.size() - 1) {
+        answersProvided = answers;
+        isCorrect = correctAnswers.size() == answerNums.length && correctAnswers.containsAll(answers);
+        isPartiallyCorrect = correctAnswers.stream().anyMatch(answers::contains);
+    }
+
+    @Override
+    public void printResult() {
+        StringBuilder stringBuilder = new StringBuilder("Your answer # ");
+        for (int i = 0; i < answersProvided.size(); i++) {
+            stringBuilder.append(answersProvided.get(i));
+            if (i < answersProvided.size() - 1) {
                 stringBuilder.append(',');
             }
         }
         stringBuilder
-                .append(answers.size() == 1 ? " is " : " are ")
+                .append(answersProvided.size() == 1 ? " is " : " are ")
                 .append(isCorrect ? "Correct" : (isPartiallyCorrect ? "Partially correct" : "Incorrect"));
         System.out.println(stringBuilder.toString());
-        return isCorrect;
     }
 }

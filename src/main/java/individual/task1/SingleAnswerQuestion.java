@@ -3,6 +3,7 @@ package individual.task1;
 public class SingleAnswerQuestion extends Question {
 
     protected Integer correctAnswerNum = null;
+    private int answerProvided;
 
     public SingleAnswerQuestion(String text) {
         super(text);
@@ -19,9 +20,13 @@ public class SingleAnswerQuestion extends Question {
 
 
     @Override
-    public boolean checkCorrect(int... answerNums) {
-        boolean isCorrect = correctAnswerNum != null && answerNums[0] == correctAnswerNum;
-        System.out.println("Answer # " + answerNums[0] + " is " + (isCorrect ? "Correct" : "Incorrect"));
-        return isCorrect;
+    public void provideAnswers(int... answerNums) {
+        answerProvided = answerNums[0];
+        this.isCorrect = correctAnswerNum != null && answerProvided == correctAnswerNum;
+    }
+
+    @Override
+    public void printResult() {
+        System.out.println("Your answer # " + answerProvided + " is " + (isCorrect ? "Correct" : "Incorrect"));
     }
 }

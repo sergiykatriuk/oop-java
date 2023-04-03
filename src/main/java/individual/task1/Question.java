@@ -6,8 +6,9 @@ import java.util.TreeMap;
 public abstract class Question {
 
 
-    private final String text;
     protected final Map<Integer, Answer> answerMap = new TreeMap<>();
+    private final String text;
+    protected boolean isCorrect;
 
     public Question(String text) {
         this.text = text;
@@ -15,8 +16,9 @@ public abstract class Question {
 
     public abstract Question addAnswer(Answer answer, boolean isCorrect);
 
-    public abstract boolean checkCorrect(int... answerNums);
+    public abstract void provideAnswers(int... answerNums);
 
+    public abstract void printResult();
 
     @Override
     public String toString() {
@@ -29,5 +31,9 @@ public abstract class Question {
                 .append('\n')
         );
         return stringBuilder.toString();
+    }
+
+    public boolean isCorrect() {
+        return isCorrect;
     }
 }
