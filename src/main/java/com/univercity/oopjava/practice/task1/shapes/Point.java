@@ -1,6 +1,6 @@
 package com.univercity.oopjava.practice.task1.shapes;
 
-public class Point {
+public class Point implements Comparable {
 
     private final int x;
     private final int y;
@@ -36,5 +36,14 @@ public class Point {
     public boolean isInside(Circle circle) {
         return Math.pow(circle.getCenter().getX() - getX(), 2) +
                 Math.pow(circle.getCenter().getY() - getY(), 2) <= Math.pow(circle.getRadius(), 2);
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        if (o instanceof Point) {
+            Point point = (Point) o;
+            return point.x - x;
+        }
+        return 0;
     }
 }
