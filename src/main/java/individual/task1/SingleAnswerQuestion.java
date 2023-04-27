@@ -1,9 +1,14 @@
 package individual.task1;
 
-public class SingleAnswerQuestion extends Question {
+import java.io.Serializable;
 
+public class SingleAnswerQuestion extends Question implements Serializable {
+    private static final long serialVersionUID = 1L;
     protected Integer correctAnswerNum = null;
     private int answerProvided;
+
+    public SingleAnswerQuestion() {
+    }
 
     public SingleAnswerQuestion(String text) {
         super(text);

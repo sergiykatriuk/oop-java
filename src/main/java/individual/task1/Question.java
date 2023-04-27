@@ -1,14 +1,17 @@
 package individual.task1;
 
+import java.io.Serializable;
 import java.util.Map;
 import java.util.TreeMap;
 
-public abstract class Question {
-
-
-    protected final Map<Integer, Answer> answerMap = new TreeMap<>();
-    private final String text;
+public abstract class Question implements Serializable {
+    private static final long serialVersionUID = 1L;
+    protected Map<Integer, Answer> answerMap = new TreeMap<>();
+    private String text;
     protected boolean isCorrect;
+
+    public Question() {
+    }
 
     public Question(String text) {
         this.text = text;

@@ -3,44 +3,13 @@ package individual.task1;
 public class Main {
     public static void main(String[] args) {
 
-        Question question1 = new SingleAnswerQuestion("Який колір забороняючого сигнала світлофора ?")
-                .addAnswer(new Answer("Синій"), false)
-                .addAnswer(new Answer("Зелений"), false)
-                .addAnswer(new Answer("Червоний"), true)
-                .addAnswer(new Answer("Жовний"), false);
+        QuizService quizService = new QuizService();
+        Quiz quiz = quizService.read("RoadTest");
 
-        question1.provideAnswers(2);
-
-
-        Question question2 = new SingleAnswerQuestion("Яка максимальна швидкість руху на автомагістралі ?")
-                .addAnswer(new Answer("110"), false)
-                .addAnswer(new Answer("90"), false)
-                .addAnswer(new Answer("70"), false)
-                .addAnswer(new Answer("130"), true);
-
-        question2.provideAnswers(4);
-
-        Question question3 = new MultipleAnswerQuestion("Скільки може бути сигналів світлофора ?")
-                .addAnswer(new Answer("Один"), false)
-                .addAnswer(new Answer("Два"), true)
-                .addAnswer(new Answer("Три"), true)
-                .addAnswer(new Answer("Чотири"), false);
-
-        question3.provideAnswers(2);
-
-        Question question4 = new MultipleAnswerQuestion("Які кольори можуть бути у сигналів світлофора ?")
-                .addAnswer(new Answer("Червоний"), true)
-                .addAnswer(new Answer("Жовтий"), true)
-                .addAnswer(new Answer("Зелений"), true)
-                .addAnswer(new Answer("Чорний"), false);
-
-        question4.provideAnswers(1, 2, 3);
-
-        Quiz quiz = new Quiz("Тест на знання правил дорожнього руху")
-                .add(question1)
-                .add(question2)
-                .add(question3)
-                .add(question4);
+        quiz.getQuestion(1).provideAnswers(2);
+        quiz.getQuestion(2).provideAnswers(4);
+        quiz.getQuestion(3).provideAnswers(2);
+        quiz.getQuestion(4).provideAnswers(1, 2, 3);
 
         quiz.printResult();
         System.out.println();

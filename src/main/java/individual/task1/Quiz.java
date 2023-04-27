@@ -1,9 +1,10 @@
 package individual.task1;
 
+import java.io.Serializable;
 import java.util.Map;
 import java.util.TreeMap;
 
-public class Quiz {
+public class Quiz implements Serializable {
 
     private final Map<Integer, Question> questions = new TreeMap<>();
     private final String text;
@@ -29,5 +30,9 @@ public class Quiz {
             System.out.println("Question: " + i + " " + q);
             q.printResult();
         });
+    }
+
+    public Question getQuestion(Integer questionNum) {
+        return questions.get(questionNum);
     }
 }
