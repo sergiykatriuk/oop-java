@@ -29,16 +29,16 @@ public class LibraryDriver {
 //        LibraryV1 libraryV1 = createDemoLibraryV1();
 //        System.out.println(libraryV1);
 //        save(libraryV1, "libraryV1");
-//        System.out.println(read("libraryV1"));
+        System.out.println(read("libraryV1"));
 
 //        LibraryV2 libraryV2 = createDemoLibraryV2();
 //        System.out.println(libraryV2);
 //        save(libraryV2, "libraryV2");
-//        System.out.println(read("libraryV2"));
+        System.out.println(read("libraryV2"));
 
-        LibraryV3 libraryV3 = createDemoLibraryV3();
-        System.out.println(libraryV3);
-        save(libraryV3, "libraryV3");
+//        LibraryV3 libraryV3 = createDemoLibraryV3();
+//        System.out.println(libraryV3);
+//        save(libraryV3, "libraryV3");
         System.out.println(read("libraryV3"));
 
 
