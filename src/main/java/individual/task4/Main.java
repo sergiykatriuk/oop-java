@@ -33,5 +33,6 @@ public class Main {
 //        2023-05-13T12:12:39.187 - Thread-2 - ended living Client{name='Bruce', surname='Willice'} for 7000 free rooms = 2
 //
 //        Process finished with exit code 0
+
     }
 }
